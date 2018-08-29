@@ -6,7 +6,11 @@ if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
   cd `pwd`/`git rev-parse --show-cdup`
 fi
 
-  dst=".git/hooks/pre-commit"
-  curl -L -O https://raw.githubusercontent.com/oomija-ts/git_hooks/master/pre-commit > $dst 2> /dev/null
+hook_files="pre-commit"
+for file_name in $hook_files
+do
+  dst=".git/hooks/$file_name"
+  curl -L https://raw.githubusercontent.com/oomija-ts/git_hooks/master/pre-commit > $dst 2> /dev/null
   chmod +x $dst
   echo "install $dst"
+done
