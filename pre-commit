@@ -11,7 +11,8 @@ fi
 # Redirect output to stderr.
 exec 1>&2
 
-bundle exec rubocop `git diff --staged  --name-only` ## 変更のあったファイルに対してrubocopを実行
+bundle exec rubocop -a `git diff --staged  --name-only` ## 変更のあったファイルに対してrubocopを実行
+git add `git diff --staged  --name-only`
 if [ "$rubocop_result" -eq 1 ]                       ## 異常終了だったらそこで終わり
 then
   exit 1

@@ -6,7 +6,7 @@ if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
   cd `pwd`/`git rev-parse --show-cdup`
 fi
 
-hook_files="pre-commit"
+hook_files="pre-commit pre-push"
 for file_name in $hook_files
 do
   dst=".git/hooks/$file_name"
