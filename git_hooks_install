@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 # Usage:
 # curl -sL https://raw.githubusercontent.com/oomija-ts/git_hooks/master/git_hooks_install | sh
 
